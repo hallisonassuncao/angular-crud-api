@@ -1,0 +1,334 @@
+{
+  "info": {
+    "_postman_id": "e99afeef-6d5c-4dfa-8fc3-099cf2a4a9c3",
+    "name": "CRUD E-commerce - SENAI",
+    "description": "### Welcome to Postman! This is your first collection. \n\nCollections are your starting point for building and testing APIs. You can use this one to:\n\n• Group related requests\n• Test your API in real-world scenarios\n• Document and share your requests\n\nUpdate the name and overview whenever you’re ready to make it yours.\n\n[Learn more about Postman Collections.](https://learning.postman.com/docs/collections/collections-overview/)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "52502873",
+    "_collection_link": "https://go.postman.co/collection/52502873-e99afeef-6d5c-4dfa-8fc3-099cf2a4a9c3?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Get data",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": ""
+        },
+        "description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+      },
+      "response": []
+    },
+    {
+      "name": "Post data",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Successful POST request\", function () {",
+              "    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+              "});",
+              ""
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n\t\"name\": \"Add your name in the body\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": ""
+        },
+        "description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+      },
+      "response": []
+    },
+    {
+      "name": "Buscar Produto por ID",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": ""
+        }
+      },
+      "response": [
+        {
+          "name": "Buscar Produto por ID",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/products/1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "products",
+                "1"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Access-Control-Allow-Origin",
+              "value": "*"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "254"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"fe-iA+7RFcz6RcJob/yIegqwJE8l3E\""
+            },
+            {
+              "key": "Date",
+              "value": "Wed, 18 Nov 2026 18:42:28 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"id\": 1,\n  \"nome\": \"Notebook Gamer\",\n  \"descricao\": \"Notebook para jogos e produtividade com excelente desempenho.\",\n  \"categoria\": \"Eletrônicos\",\n  \"preco\": 5299.9,\n  \"imagem\": \"https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=600&q=80\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "PUT - Atualizar Produto",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "\r\n{\r\n  \"nome\": \"Teclado Gamer RGB Pro\",\r\n  \"descricao\": \"Teclado mecanico gamer atualizado com iluminacao RGB.\",\r\n  \"categoria\": \"Eletrônicos\",\r\n  \"preco\": 349.90,\r\n  \"imagem\": \"https://images.unsplash.com/photo-1541140532154-b024d705b90a\"\r\n}\r\n",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/products/7",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "products",
+            "7"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "PUT - Atualizar Produto",
+          "originalRequest": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "\r\n{\r\n  \"nome\": \"Teclado Gamer RGB Pro\",\r\n  \"descricao\": \"Teclado mecanico gamer atualizado com iluminacao RGB.\",\r\n  \"categoria\": \"Eletrônicos\",\r\n  \"preco\": 349.90,\r\n  \"imagem\": \"https://images.unsplash.com/photo-1541140532154-b024d705b90a\"\r\n}\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/products/7",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "products",
+                "7"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Access-Control-Allow-Origin",
+              "value": "*"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "220"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"dc-BLKqn6E5lmf1ZqEOeEOTicDqEwo\""
+            },
+            {
+              "key": "Date",
+              "value": "Wed, 18 Nov 2026 18:56:08 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"id\": 7,\n  \"nome\": \"Teclado Gamer RGB Pro\",\n  \"descricao\": \"Teclado mecanico gamer atualizado com iluminacao RGB.\",\n  \"categoria\": \"Eletrônicos\",\n  \"preco\": 349.9,\n  \"imagem\": \"https://images.unsplash.com/photo-1541140532154-b024d705b90a\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "DELETE - Excluir Produto",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": ""
+        }
+      },
+      "response": [
+        {
+          "name": "DELETE - Excluir Produto",
+          "originalRequest": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/api/products/7",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "products",
+                "7"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Access-Control-Allow-Origin",
+              "value": "*"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "220"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"dc-BLKqn6E5lmf1ZqEOeEOTicDqEwo\""
+            },
+            {
+              "key": "Date",
+              "value": "Wed, 18 Nov 2026 18:58:00 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n  \"id\": 7,\n  \"nome\": \"Teclado Gamer RGB Pro\",\n  \"descricao\": \"Teclado mecanico gamer atualizado com iluminacao RGB.\",\n  \"categoria\": \"Eletrônicos\",\n  \"preco\": 349.9,\n  \"imagem\": \"https://images.unsplash.com/photo-1541140532154-b024d705b90a\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "DELETE - Excluir Produto",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/products/7",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "products",
+            "7"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
